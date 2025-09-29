@@ -1,6 +1,6 @@
 #  Data Science Portfolio - Ayush Kumar Maurya  
 
-Welcome to my **Data Science & Machine Learning [Portfolio](https)** 
+Welcome to my **Data Science & Machine Learning [Portfolio](https://ayushmaurya13.github.io/my_data_science_portfolio/)** 
 This repository is a hub for all my projects, ranging from predictive modeling to deployment.  
 
 ---
