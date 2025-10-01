@@ -1,408 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayush | Portfolio</title>
-  <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: "Poppins", sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-
-    /* Navbar */
-    nav {
-      position: fixed; 
-      top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 50px;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      font-family: 'Segoe UI', sans-serif;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-    nav h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #38bdf8;
-      cursor: pointer;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    nav h1:hover { transform: scale(1.1); color: #f472b6; }
-    nav ul { display: flex; gap: 25px; list-style: none; }
-    nav ul li a {
-      color: #f1f5f9; font-size: 1.1rem; font-weight: 500;
-      position: relative; transition: color 0.3s ease;
-    }
-    nav ul li a::after {
-      content: ""; position: absolute; width: 0; height: 2px;
-      background: #38bdf8; left: 0; bottom: -5px;
-      transition: width 0.3s ease;
-    }
-    nav ul li a:hover { color: #38bdf8; }
-    nav ul li a:hover::after { width: 100%; }
-    .hamburger { display: none; font-size: 2rem; cursor: pointer; color: #f1f5f9; }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none; flex-direction: column; background: #1e293b;
-        position: absolute; top: 65px; right: 0; width: 200px;
-        padding: 20px; border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.4); animation: slideIn 0.4s ease;
-      }
-      nav ul.active { display: flex; }
-      .hamburger { display: block; }
-    }
-    @keyframes slideIn {
-      from { transform: translateX(100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-
-    /* Header */
-    header {
-      min-height: 100vh;
-      display: flex; justify-content: center; align-items: center;
-      background: linear-gradient(135deg, #9333ea, #2563eb, #06b6d4);
-      color: white; padding: 60px 20px;
-    }
-    .header-container {
-      display: flex; align-items: center; gap: 60px;
-      max-width: 1100px; flex-wrap: wrap;
-    }
-    .profile-pic img {
-      width: 250px; height: 250px; border-radius: 50%;
-      border: 6px solid #38bdf8; object-fit: cover;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .profile-pic img:hover {
-      transform: scale(1.08); box-shadow: 0 15px 40px rgba(56,189,248,0.9);
-    }
-    .intro-text h1 { font-size: 3rem; margin-bottom: 15px; }
-    .intro-text h2 { font-size: 1.9rem; margin-bottom: 20px; }
-    .intro-text h2 .typing {
-      background: linear-gradient(90deg, #38bdf8, #f472b6, #9333ea);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      animation: gradientFlow 3s infinite;
-    }
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    .intro-text p { font-size: 1.1rem; max-width: 600px; margin-bottom: 30px; }
-    .intro-text .highlight { color: #38bdf8; font-weight: bold; }
-    .intro-text button {
-      padding: 12px 25px; border: none; border-radius: 25px;
-      background: #38bdf8; color: #0f172a; font-weight: bold;
-      cursor: pointer; transition: transform 0.3s, background 0.3s;
-    }
-    .intro-text button:hover { transform: scale(1.1); background: #f472b6; }
-    @media (max-width: 768px) {
-      .header-container { flex-direction: column; text-align: center; gap: 30px; }
-      .intro-text h1 { font-size: 2.2rem; }
-      .intro-text h2 { font-size: 1.5rem; }
-    }
-
-    /* Sections */
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    section h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #38bdf8; }
-
-    /* About */
-    #about p { text-align: center; max-width: 700px; margin: auto; font-size: 1.1rem; }
-
-    /* Projects */
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    .card {
-      background: #1e293b; padding: 25px; border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 12px 25px rgba(56,189,248,0.5); }
-    .card h3 { 
-      background: linear-gradient(90deg, #38bdf8, #f472b6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
-    .btn-group { display: flex; gap: 10px; }
-    .btn {
-      flex: 1; text-align: center; padding: 8px 12px;
-      border-radius: 8px; background: #38bdf8; color: #0f172a;
-      font-weight: 600; transition: background 0.3s;
-    }
-    .btn:hover { background: #9333ea; color: white; }
-
-    /* Contact */
-    #contact {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      padding: 60px 20px; border-radius: 20px;
-      margin: 50px auto; max-width: 700px;
-    }
-    .contact-container { display: flex; justify-content: center; }
-    .contact-form {
-      background: rgba(255, 255, 255, 0.05); padding: 30px;
-      border-radius: 15px; width: 100%; max-width: 500px;
-      display: flex; flex-direction: column; gap: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-    .contact-form input, .contact-form textarea {
-      background: #1e293b; border: 2px solid #334155; border-radius: 10px;
-      padding: 12px; font-size: 1rem; color: #f1f5f9; outline: none;
-      transition: all 0.3s ease;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border-color: #38bdf8; box-shadow: 0 0 15px rgba(56,189,248,0.6);
-      transform: scale(1.02);
-    }
-    .contact-form button {
-      background: linear-gradient(90deg, #2563eb, #9333ea);
-      border: none; padding: 14px; border-radius: 10px;
-      color: #fff; font-size: 1.1rem; cursor: pointer;
-      transition: all 0.4s ease;
-    }
-    .contact-form button:hover {
-      background: linear-gradient(90deg, #9333ea, #2563eb);
-      box-shadow: 0 0 20px rgba(147,51,234,0.7);
-      transform: scale(1.05);
-    }
-
-    /* Footer */
-    footer { text-align: center; padding: 20px; background: #1e293b; color: #94a3b8; }
-
-    /* Animations */
-    .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ayush Kumar Maurya - Data Scientist and Machine Learning Engineer Portfolio">
+    <meta name="keywords" content="Data Science, Machine Learning, AI, Python, Portfolio">
+    <meta name="author" content="Ayush Kumar Maurya">
+    <title>Ayush Kumar Maurya | Data Scientist & ML Engineer</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav>
-    <h1> Ayush Kumar Maurya </h1>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger">&#9776;</div>
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="profile-pic">
-        <img src="profile_image.png" alt="Ayush Profile">
-      </div>
-      <div class="intro-text">
-        <h1>Hello, I'm <span class="highlight">Ayush Kumar Maurya</span> 👋</h1>
-        <h2>I’m a <span class="typing"></span></h2>
-        <p>
-          B.Tech Computer Science student specializing in Data Science. Passionate about analytics, ML, and building impactful solutions. Skilled in turning raw data into meaningful insights & dashboards.
-        </p>
-        <button onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">🚀 View My Work</button>
-      </div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
     </div>
-  </header>
 
-  <!-- About -->
-  <section id="about" class="reveal">
-    <h2>About Me</h2>
-    <p>I’m a B.Tech Computer Science student specializing in Data Science. Passionate about analytics, machine learning, and building impactful solutions. I love turning raw data into meaningful insights and interactive dashboards.</p>
-  </section>
-<!--====================================================================================================================================================================================-->
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-  <h2>📬 Connect With Me</h2>
-  <p>Let’s connect on my professional profiles or download my resume below 👇</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Ayush Kumar Maurya</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <div class="contact-links">
-    <a href="https://www.linkedin.com/in/ayush-kumar-maurya-a43914258/" target="_blank" class="contact-btn linkedin">
-      💼 LinkedIn
-    </a>
-    <a href="https://github.com/AyushMaurya13" target="_blank" class="contact-btn github">
-      🐙 GitHub
-    </a>
-    <a href="https://x.com/ayush_maur10241" target="_blank" class="contact-btn github">
-      🐙 Twitter/X
-    </a>
-    <a href="resume.pdf" download class="contact-btn resume">
-      📄 Download Resume
-    </a>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Ayush Kumar Maurya</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        <span class="typing-text"></span>
+                        <span class="cursor">|</span>
+                    </p>
+                    <p class="hero-description">
+                        A passionate and dedicated fresher ready to dive into the world of data science and machine learning. 
+                        Eager to apply my knowledge and skills to solve real-world problems and contribute to innovative projects.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <div class="profile-photo">
+                                <img src="profile_image.png" alt="Ayush Kumar Maurya" class="profile-img">
+                            </div>
+                        </div>
+                        <div class="floating-elements">
+                            <div class="float-element" data-float="1">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="float-element" data-float="2">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="float-element" data-float="3">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="float-element" data-float="4">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <p>Scroll Down</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Styles -->
-<style>
-  .contact-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: #0f172a;
-    color: #f1f5f9;
-  }
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-subtitle">Get to know me better</div>
+                <div class="section-decoration">
+                    <div class="decoration-line"></div>
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-line"></div>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-main">
+                    <div class="about-text">
+                        <div class="about-card">
+                            <div class="card-header">
+                                <div class="header-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h3>Data Scientist & ML Engineer</h3>
+                                <div class="header-decoration"></div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="text-block" data-animate="fade-up" data-delay="100">
+                                    <p>
+                                        As a recent graduate with a strong foundation in mathematics, statistics, and computer science, 
+                                        I'm ready to begin my journey in data science and machine learning. Through academic projects 
+                                        and self-learning, I've gained knowledge in predictive analytics, natural language processing, 
+                                        computer vision, and deep learning fundamentals.
+                                    </p>
+                                </div>
+                                
+                                <div class="text-block" data-animate="fade-up" data-delay="200">
+                                    <p>
+                                        I'm enthusiastic about learning and applying cutting-edge technologies to solve real-world challenges. 
+                                        As a fresher, I'm committed to continuous learning, bringing fresh perspectives, and contributing 
+                                        to data-driven solutions with dedication and innovative thinking.
+                                    </p>
+                                </div>
 
-  .contact-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #38bdf8;
-  }
+                                <div class="expertise-tags" data-animate="fade-up" data-delay="300">
+                                    <span class="tag">Python Programming</span>
+                                    <span class="tag">Data Analysis</span>
+                                    <span class="tag">Machine Learning</span>
+                                    <span class="tag">Statistical Analysis</span>
+                                    <span class="tag">Data Visualization</span>
+                                    <span class="tag">Quick Learner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  .contact-section p {
-    color: #94a3b8;
-    margin-bottom: 30px;
-  }
+                    <div class="about-visual">
+                        <div class="visual-card">
+                            <div class="data-visualization">
+                                <div class="chart-container">
+                                    <div class="chart-header">
+                                        <h4>My Journey</h4>
+                                        <div class="chart-controls">
+                                            <span class="control active"></span>
+                                            <span class="control"></span>
+                                            <span class="control"></span>
+                                        </div>
+                                    </div>
+                                    <div class="animated-chart">
+                                        <div class="chart-bars">
+                                            <div class="bar" data-width="85">
+                                                <span class="bar-label">ML</span>
+                                                <div class="bar-track">
+                                                    <div class="bar-fill">
+                                                        <span class="bar-value">85%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bar" data-width="92">
+                                                <span class="bar-label">Python</span>
+                                                <div class="bar-track">
+                                                    <div class="bar-fill">
+                                                        <span class="bar-value">92%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bar" data-width="78">
+                                                <span class="bar-label">DL</span>
+                                                <div class="bar-track">
+                                                    <div class="bar-fill">
+                                                        <span class="bar-value">78%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bar" data-width="88">
+                                                <span class="bar-label">Stats</span>
+                                                <div class="bar-track">
+                                                    <div class="bar-fill">
+                                                        <span class="bar-value">88%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="floating-particles">
+                                    <div class="particle" data-speed="1"></div>
+                                    <div class="particle" data-speed="2"></div>
+                                    <div class="particle" data-speed="3"></div>
+                                    <div class="particle" data-speed="1.5"></div>
+                                    <div class="particle" data-speed="2.5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
+                <div class="about-stats">
+                    <div class="stats-container">
+                        <div class="stat-item" data-animate="zoom-in" data-delay="400">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number" data-target="8">0</span>
+                                <span class="stat-label">Academic Projects</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item" data-animate="zoom-in" data-delay="500">
+                            <div class="stat-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number" data-target="5">0</span>
+                                <span class="stat-label">ML Models Built</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item" data-animate="zoom-in" data-delay="600">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number" data-target="85">0</span>
+                                <span class="stat-plus">%</span>
+                                <span class="stat-label">Learning Progress</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item" data-animate="zoom-in" data-delay="700">
+                            <div class="stat-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number" data-target="6">0</span>
+                                <span class="stat-plus">+</span>
+                                <span class="stat-label">Months Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  .contact-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="section-subtitle">Technologies I work with</div>
+                <div class="section-decoration">
+                    <div class="decoration-line"></div>
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-line"></div>
+                </div>
+            </div>
+            <div class="skills-content">
+                <!-- Python Ecosystem -->
+                <div class="skills-category">
+                    <h3><i class="fab fa-python"></i>Python Ecosystem</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item python" data-skill="python">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item numpy" data-skill="numpy">
+                            <div class="skill-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">NumPy</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item pandas" data-skill="pandas">
+                            <div class="skill-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Pandas</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item scipy" data-skill="scipy">
+                            <div class="skill-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">SciPy</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
 
-  .linkedin {
-    background: #0a66c2;
-    color: #fff;
-  }
+                <!-- Machine Learning Libraries -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-robot"></i>Machine Learning Libraries</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item sklearn" data-skill="sklearn">
+                            <div class="skill-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Scikit-Learn</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item xgboost" data-skill="xgboost">
+                            <div class="skill-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">XGBoost</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item lightgbm" data-skill="lightgbm">
+                            <div class="skill-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">LightGBM</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
 
-  .github {
-    background: #333;
-    color: #fff;
-  }
+                <!-- Deep Learning Frameworks -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-brain"></i>Deep Learning Frameworks</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item tensorflow" data-skill="tensorflow">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">TensorFlow</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item keras" data-skill="keras">
+                            <div class="skill-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Keras</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item pytorch" data-skill="pytorch">
+                            <div class="skill-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">PyTorch</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
 
-  .resume {
-    background: #22c55e;
-    color: #fff;
-  }
+                <!-- Data Visualization -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-chart-line"></i>Data Visualization</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item matplotlib" data-skill="matplotlib">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Matplotlib</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item seaborn" data-skill="seaborn">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Seaborn</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item plotly" data-skill="plotly">
+                            <div class="skill-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Plotly</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
 
-  .contact-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  }
+                <!-- Natural Language Processing -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-comments"></i>Natural Language Processing</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item nltk" data-skill="nltk">
+                            <div class="skill-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">NLTK</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item spacy" data-skill="spacy">
+                            <div class="skill-icon">
+                                <i class="fas fa-spell-check"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">spaCy</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item transformers" data-skill="transformers">
+                            <div class="skill-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Transformers</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
 
-  /* Responsive */
-  @media (max-width: 600px) {
-    .contact-links {
-      flex-direction: column;
-    }
-    .contact-btn {
-      width: 100%;
-      max-width: 250px;
-      margin: 0 auto;
-    }
-  }
-</style>
-<!--==================================================================================================================================-->
-  <!-- Projects -->
-  <section id="projects" class="reveal">
-    <h2>Projects</h2>
-    <div class="projects">
-      <!-- 10 Projects -->
-      <div class="card"><h3>🤖 Insurance Cost Prediction</h3><p>Predicts annual health insurance charges using ML. deployed with Streamlit.</p><div class="btn-group"><a href="https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/" class="btn">Live App</a><a href="https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>📊 Airbnb NYC EDA</h3><p>Performed EDA on 10K+ listings uncovering pricing trends and host behaviors.</p><div class="btn-group"><a href="https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA/blob/main/Aribnb_EDA.ipynb" class="btn">Live App</a><a href="https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>🌾 Indian Crop Yield Prediction</h3><p>Forecast crop yield with ML using climate & Fertilizer.</p><div class="btn-group"><a href="https://indiancropyieldprediction-mmwh4csrahy6kqchvcxipm.streamlit.app/" class="btn">Live App</a><a href="https://github.com/AyushMaurya13/Indian_crop_yield_prediction" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>📈 Customer Segmentation</h3><p>Segments customers based on purchasing behavior. with dashboards.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>🛒 Insurance Cost Prediction</h3><p>Full-stack e-commerce app with cart, dark mode & filters.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>📚 Student Management System</h3><p>MERN app for student records with CRUD + auth.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>🌐 Personal Portfolio</h3><p>Animated responsive portfolio website with themes.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>📊 Sales Dashboard</h3><p>Power BI dashboard visualizing sales insights.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>🧠 NLP Sentiment Analysis</h3><p>Classified customer sentiment with 90% accuracy.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>🎵 Music Recommendation</h3><p>ML-based collaborative filtering music recommender.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3>📰Fake News Detection (NLP)</h3><p>Detects whether a news article is fake or real.</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-      <div class="card"><h3🎥>Movies Recommendation System</h3><p>Recommend Top 5 Movies Based on Similar Category</p><div class="btn-group"><a href="#" class="btn">Live App</a><a href="#" class="btn">GitHub</a></div></div>
-    </div>
-  </section>
+                <!-- Database & Statistics -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-database"></i>Database & Statistics</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item mysql" data-skill="mysql">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">MySQL</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item statistics" data-skill="statistics">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Statistics</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-item statsmodels" data-skill="statsmodels">
+                            <div class="skill-icon">
+                                <i class="fas fa-sigma"></i>
+                            </div>
+                            <div class="skill-content">
+                                <span class="skill-name">Statsmodels</span>
+                                <div class="skill-progress">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="reveal">
-    <h2>📬 Send Your Massage</h2>
-    <p style="text-align:center; margin-bottom:20px; color:#94a3b8;">Let’s connect! Fill out the form below and I’ll get back to you soon.</p>
-    <div class="contact-container">
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">🚀 Send Message</button>
-      </form>
-    </div>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-subtitle">Some of my best work</div>
+                <div class="section-decoration">
+                    <div class="decoration-line"></div>
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-line"></div>
+                </div>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="dl">Deep Learning</button>
+                <button class="filter-btn" data-filter="nlp">NLP</button>
+                <button class="filter-btn" data-filter="cv">Computer Vision</button>
+                <button class="filter-btn" data-filter="analytics">Data Analytics</button>
+            </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Ayush Kumar Maurya</p>
-  </footer>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript -->
-  <script>
-    // Navbar toggle
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-      hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
-    });
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-subtitle">Let's work together</div>
+                <div class="section-decoration">
+                    <div class="decoration-line"></div>
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-line"></div>
+                </div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <div class="intro-card" data-animate="slide-up" data-delay="100">
+                            <div class="intro-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Ready to Start My Career!</h3>
+                            <p>As a motivated fresher, I'm eager to contribute to your team and grow my skills in data science. Let's discuss how I can bring fresh perspectives and dedication to your projects.</p>
+                            
+                            <div class="availability-status">
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
+                                    <span>Actively seeking opportunities</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    // Scroll reveal
-    function revealOnScroll() {
-      document.querySelectorAll(".reveal").forEach(el => {
-        let windowHeight = window.innerHeight;
-        let elementTop = el.getBoundingClientRect().top;
-        let elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-          el.classList.add("active");
-        } else {
-          el.classList.remove("active");
-        }
-      });
-    }
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
+                    <div class="contact-methods">
+                        <a href="ayushmaurya01cs@gmail.com" class="contact-item" data-animate="fade-left" data-delay="200" target="_blank">
+                            <div class="contact-icon">
+                                <div class="icon-bg">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="icon-ripple"></div>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>Welcome to my professional Contact page!</p>
+                                <span class="contact-description">Drop me a line anytime</span>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
 
-    // Typing Effect
-    const roles = ["Data Scientist", "Data Analyst", "Full-Stack Learner"];
-    let roleIndex = 0, charIndex = 0;
-    const typingElement = document.querySelector(".typing");
-    function typeEffect() {
-      if (charIndex < roles[roleIndex].length) {
-        typingElement.textContent += roles[roleIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeEffect, 120);
-      } else {
-        setTimeout(eraseEffect, 1500);
-      }
-    }
-    function eraseEffect() {
-      if (charIndex > 0) {
-        typingElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseEffect, 80);
-      } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(typeEffect, 500);
-      }
-    }
-    document.addEventListener("DOMContentLoaded", typeEffect);
-  </script>
+                        <a href="https://www.linkedin.com/in/ayush-kumar-maurya-a43914258/" class="contact-item" data-animate="fade-left" data-delay="300" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-icon">
+                                <div class="icon-bg">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="icon-ripple"></div>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>Ayush Kumar Maurya</p>
+                                <span class="contact-description">Let's connect professionally</span>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
 
+                        <a href="https://github.com/AyushMaurya13" class="contact-item" data-animate="fade-left" data-delay="400" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-icon">
+                                <div class="icon-bg">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="icon-ripple"></div>
+                            </div>
+                            
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <p> Welcome to my GitHub profile!</p>
+                                <span class="contact-description">Check out my code</span>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://x.com/ayush_maur10241" class="contact-item" data-animate="fade-left" data-delay="500" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-icon">
+                                <div class="icon-bg">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <div class="icon-ripple"></div>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Twitter</h4>
+                                <p>@ayush_maur10241</p>
+                                <span class="contact-description">Follow me on Twitter</span>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container" data-animate="slide-up" data-delay="300">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>Send Me a Message</h3>
+                        <p>Got a project in mind? Let's make it happen!</p>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group" data-animate="fade-up" data-delay="400">
+                                    <label for="name">Full Name</label>
+                                    <div class="input-container">
+                                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                                        <div class="input-focus-line"></div>
+                                        <div class="input-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group" data-animate="fade-up" data-delay="500">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-container">
+                                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                                        <div class="input-focus-line"></div>
+                                        <div class="input-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" data-animate="fade-up" data-delay="600">
+                                <label for="subject">Subject</label>
+                                <div class="input-container">
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Choose a topic...</option>
+                                        <option value="project">Project Collaboration</option>
+                                        <option value="consultation">Data Science Consultation</option>
+                                        <option value="job">Job Opportunity</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="input-focus-line"></div>
+                                    <div class="input-icon">
+                                        <i class="fas fa-tag"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" data-animate="fade-up" data-delay="700">
+                                <label for="message">Message</label>
+                                <div class="input-container">
+                                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+                                    <div class="input-focus-line"></div>
+                                    <div class="input-icon">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions" data-animate="fade-up" data-delay="800">
+                                <button type="submit" class="btn btn-primary btn-animated">
+                                    <span class="btn-text">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Send Message
+                                    </span>
+                                    <span class="btn-loading">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        Sending...
+                                    </span>
+                                    <div class="btn-ripple"></div>
+                                </button>
+                                
+                                <div class="form-note">
+                                    <i class="fas fa-clock"></i>
+                                    I'll get back to you within 24 hours
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="form-background-elements">
+                        <div class="bg-element bg-element-1"></div>
+                        <div class="bg-element bg-element-2"></div>
+                        <div class="bg-element bg-element-3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floating Animation Elements -->
+            <div class="contact-background">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+                <div class="floating-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Ayush Kumar Maurya. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ayush-kumar-maurya-a43914258/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AyushMaurya13" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/ayush_maur10241" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:ayushmaurya01cs@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
-
