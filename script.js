@@ -9,12 +9,12 @@ const projects = [
         id: 1,
         title: "Netflix Content Recommendation Engine",
         category: "ml",
-        description: "Built an enterprise-scale recommendation system processing 500M+ user interactions daily. Implemented collaborative filtering, matrix factorization, and deep neural networks achieving 35% increase in user engagement. Deployed on AWS with auto-scaling infrastructure.",
-        tech: ["Python", "TensorFlow", "Apache Spark", "Redis", "AWS EMR", "Kubernetes"],
+        description: "Built an enterprise-scale recommendation system processing . Implemented collaborative filtering, matrix factorization, and Machine Learning achieving 5% increase in user engagement. Deployed on Streamlit Cloud with auto-scaling infrastructure.",
+        tech: ["Python", "Scikit-Learn", "Streamlit", "Seaborn", "Ploty", "GitHub"],
         image: "fas fa-film",
-        github: "https://github.com/ayushkmaurya/netflix-recommender",
-        demo: "https://netflix-recommender-demo.herokuapp.com",
-        metrics: "500M+ daily users, 35% engagement boost"
+        github: "https://github.com/AyushMaurya13/1_Netflix-Content-Recommendation-Engine",
+        demo: "https://6rcuwthpkt3cgf38kmglpy.streamlit.app/",
+        metrics: "Build for some Experience, 5% engagement boost "
     },
     {
         id: 2,
@@ -1063,4 +1063,5 @@ document.addEventListener('DOMContentLoaded', function() {
             animateParticle();
         }
     });
+
 });
