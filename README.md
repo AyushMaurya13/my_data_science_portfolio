@@ -131,7 +131,7 @@ Accent: #ffd700 (Gold)
 
 | # | Project Name | Category | Tech Stack | Links |
 |---|--------------|----------|------------|-------|
-| 1 | **Netflix Content Recommendation Engine** | ML | Python, TensorFlow, AWS | [GitHub](https://github.com/ayushkmaurya/netflix-recommender) • [Demo](https://netflix-recommender-demo.herokuapp.com) |
+| 1 | **Netflix Content Recommendation Engine** | ML | Python, TensorFlow, AWS | [GitHub](https://github.com/AyushMaurya13/1_Netflix-Content-Recommendation-Engine) • [Demo](https://6rcuwthpkt3cgf38kmglpy.streamlit.app/) |
 | 2 | **Tesla Autopilot Computer Vision Pipeline** | Computer Vision | PyTorch, CUDA, OpenCV | [GitHub](https://github.com/ayushkmaurya/autopilot-cv) • [Demo](https://autopilot-cv-demo.com) |
 | 3 | **Goldman Sachs Algorithmic Trading Bot** | Deep Learning | Python, PyTorch, C++ | [GitHub](https://github.com/ayushkmaurya/algo-trading) • [Demo](https://trading-bot-dashboard.com) |
 | 4 | **Google Search Query Understanding** | NLP | BERT, Transformers, Kubernetes | [GitHub](https://github.com/ayushkmaurya/search-nlp) • [Demo](https://search-query-demo.com) |
