@@ -142,8 +142,8 @@ Accent: #ffd700 (Gold)
 | 9 | **PayPal Fraud Detection System** | Machine Learning | XGBoost,scikit-learn| [GitHub](https://github.com/AyushMaurya13/2_PayPal_Fraud_Detection_System) • [Demo](https://f6efrv6uttbd7vpxklzzet.streamlit.app/) |
 | 10 | **OpenAI GPT Content Moderation** | NLP | Transformers, BERT, MLflow | [GitHub](https://github.com/ayushkmaurya/content-moderation) • [Demo](https://content-mod-demo.com) |
 | 11 | **Uber Dynamic Pricing Engine** | Analytics | Apache Spark, Geospatial Analysis | [GitHub](https://github.com/ayushkmaurya/dynamic-pricing) • [Demo](https://pricing-engine-demo.com) |
-| 12 | **NYC Airbnb Analytics Dashboard** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA) • [Demo](https://8qrfhz7nkjfvpm2rqf7snm.streamlit.app/)
-| 13 | **Medical Insurance Cost Prediction** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction) • [Demo](https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/)
+| 12 | **NYC Airbnb Analytics Dashboard** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy, ploty| [GitHub](https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA) • [Demo](https://8qrfhz7nkjfvpm2rqf7snm.streamlit.app/)
+| 13 | **Medical Insurance Cost Prediction** |Feature Engineering, Data Analysis, Machine Learning| Matplotlib, Scikit-Learn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction) • [Demo](https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/)
 </div>
 
 ### 🏆 Project Highlights
