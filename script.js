@@ -18,6 +18,17 @@ const projects = [
     },
     {
         id: 2,
+        title: "Indian Crop Yield Prediction",
+        category: "ml",
+        description: "A data-driven system that predicts crop yields across different regions of India using factors like rainfall, temperature, soil type, and agricultural practices. It supports farmers and policymakers in optimizing resource use and improving food security. ",
+        tech: ["Python", "Scikit-Learn", "Ploty", "Streamlit", "Seaborn", "Linear-Regression"],
+        image: "fa-solid fa-tractor",
+        github: "https://github.com/AyushMaurya13/Indian_crop_yield_prediction",
+        demo: "https://indiancropyieldprediction-mmwh4csrahy6kqchvcxipm.streamlit.app/",
+        metrics: "88.7% accuracy, 60fps processing"
+    },
+    {
+        id: 3,
         title: "Tesla Autopilot Computer Vision Pipeline",
         category: "cv",
         description: "Developed real-time object detection and lane recognition system for autonomous vehicles. Implemented YOLOv8 with custom architecture, processing 60fps video streams with 99.7% accuracy. Optimized for NVIDIA Drive PX2 hardware.",
@@ -28,7 +39,7 @@ const projects = [
         metrics: "99.7% accuracy, 60fps processing"
     },
     {
-        id: 3,
+        id: 4,
         title: "Goldman Sachs Algorithmic Trading Bot",
         category: "dl",
         description: "Engineered high-frequency trading algorithms using LSTM and Transformer models for market prediction. Processed 1TB+ market data daily, achieving 23% annual return with Sharpe ratio of 2.4. Deployed on low-latency infrastructure with microsecond execution.",
@@ -39,7 +50,7 @@ const projects = [
         metrics: "23% annual return, 2.4 Sharpe ratio"
     },
     {
-        id: 4,
+        id: 5,
         title: "Google Search Query Understanding",
         category: "nlp",
         description: "Built large-scale NLP system for search query interpretation using BERT and T5 models. Handles 8B+ daily queries with 94% intent accuracy. Implemented multilingual support for 100+ languages with real-time inference at <50ms latency.",
@@ -50,7 +61,7 @@ const projects = [
         metrics: "8B+ daily queries, 94% accuracy"
     },
     {
-        id: 5,
+        id: 6,
         title: "Amazon Supply Chain Optimization",
         category: "analytics",
         description: "Developed ML-powered supply chain optimization reducing logistics costs by $2B annually. Implemented reinforcement learning for dynamic pricing and inventory management across 175 fulfillment centers. Real-time demand forecasting with 96% accuracy.",
@@ -61,7 +72,7 @@ const projects = [
         metrics: "$2B cost reduction, 96% forecast accuracy"
     },
     {
-        id: 6,
+        id: 7,
         title: "Spotify Music Recommendation AI",
         category: "dl",
         description: "Created deep learning system for music recommendation using audio signal processing and collaborative filtering. Processes 4B+ songs with neural collaborative filtering, achieving 42% increase in user retention. Deployed on Google Cloud with 99.99% uptime.",
@@ -72,7 +83,7 @@ const projects = [
         metrics: "4B+ songs, 42% retention increase"
     },
     {
-        id: 7,
+        id: 8,
         title: "Microsoft Azure Cognitive Services",
         category: "cv",
         description: "Built computer vision APIs for facial recognition and emotion detection serving 100M+ API calls monthly. Implemented state-of-the-art CNN architectures with 99.2% facial recognition accuracy. Supports real-time video analysis with edge computing optimization.",
@@ -83,18 +94,18 @@ const projects = [
         metrics: "100M+ monthly API calls, 99.2% accuracy"
     },
     {
-        id: 8,
+        id: 9,
         title: "PayPal Fraud Detection System",
         category: "ml",
-        description: "Engineered real-time fraud detection preventing $500M+ annual losses. Implemented ensemble methods with XGBoost and neural networks, processing 50K+ transactions per second. Features advanced anomaly detection with 99.8% precision and 0.1% false positive rate.",
-        tech: ["Python", "XGBoost", "Apache Kafka", "Redis", "PostgreSQL", "Docker"],
-        image: "fas fa-shield-virus",
-        github: "https://github.com/ayushkmaurya/fraud-detection",
-        demo: "https://fraud-detector-demo.com",
-        metrics: "$500M+ losses prevented, 99.8% precision"
+        description: "A machine learning-based system designed to detect and prevent fraudulent transactions on PayPal by analyzing user behavior, transaction patterns, and risk factors in real time. It enhances platform security and reduces financial loss through early anomaly detection.",
+        tech: ["Python", "XGBoost", "ScikitLearn", "LightGBM", "Machine Learning"],
+        image: "fas fa-user-secret",
+        github: "https://github.com/AyushMaurya13/2_PayPal_Fraud_Detection_System",
+        demo: "https://f6efrv6uttbd7vpxklzzet.streamlit.app/",
+        metrics: " Just a project which is use to  losses prevented, 90.8% precision"
     },
     {
-        id: 9,
+        id: 10,
         title: "OpenAI GPT Content Moderation",
         category: "nlp",
         description: "Developed large-scale content moderation system using transformer models for social media platforms. Processes 10B+ posts daily with multilingual toxic content detection. Achieved 97% accuracy with minimal bias across demographic groups.",
@@ -105,7 +116,7 @@ const projects = [
         metrics: "10B+ daily posts, 97% accuracy"
     },
     {
-        id: 10,
+        id: 11,
         title: "Uber Dynamic Pricing Engine",
         category: "analytics",
         description: "Built dynamic surge pricing algorithm using real-time demand prediction and geospatial analysis. Processes 15M+ rides daily across 70+ countries. Implemented reinforcement learning for optimal pricing strategy, increasing revenue by 28% while maintaining user satisfaction.",
@@ -114,6 +125,28 @@ const projects = [
         github: "https://github.com/ayushkmaurya/dynamic-pricing",
         demo: "https://pricing-engine-demo.com",
         metrics: "15M+ daily rides, 28% revenue boost"
+    },
+    {
+        id: 12,
+        title: "NYC Airbnb Analytics Dashboard",
+        category: "analytics",
+        description: "An interactive dashboard that visualizes Airbnb listings data in New York City. It provides insights into pricing trends, availability, neighborhood popularity, host activity, and customer ratings to support better decision-making for hosts, travelers, and analysts.",
+        tech: ["Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy, ploty"],
+        image: "fas fa-taxi",
+        github: "https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA",
+        demo: "https://8qrfhz7nkjfvpm2rqf7snm.streamlit.app/",
+        metrics: "Best Airbnb Room in NYC you can book."
+    },
+    {
+        id: 13,
+        title: "Medical Insurance Cost Prediction",
+        category: "ml",
+        description: "Predicting the cost of medical insurance based on factors like age, gender, BMI, smoking status, and region using data analysis and machine learning. This helps insurers estimate premiums accurately and supports personalized insurance planning.",
+        tech: ["Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy"],
+        image: "fas fa-file-medical",
+        github: "https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction",
+        demo: "https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/",
+        metrics: "Calculate your insurance cost to claim"
     }
 ];
 
