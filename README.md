@@ -75,7 +75,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/AyushMaurya13/animated-portfolio.git
+   git clone https://github.com/AyushMaurya13/my_data_science_portfolio
    cd animated-portfolio
    ```
 
@@ -131,17 +131,19 @@ Accent: #ffd700 (Gold)
 
 | # | Project Name | Category | Tech Stack | Links |
 |---|--------------|----------|------------|-------|
-| 1 | **Netflix Content Recommendation Engine** | ML | Python, TensorFlow, AWS | [GitHub](https://github.com/AyushMaurya13/1_Netflix-Content-Recommendation-Engine) • [Demo](https://6rcuwthpkt3cgf38kmglpy.streamlit.app/) |
-| 2 | **Tesla Autopilot Computer Vision Pipeline** | Computer Vision | PyTorch, CUDA, OpenCV | [GitHub](https://github.com/ayushkmaurya/autopilot-cv) • [Demo](https://autopilot-cv-demo.com) |
-| 3 | **Goldman Sachs Algorithmic Trading Bot** | Deep Learning | Python, PyTorch, C++ | [GitHub](https://github.com/ayushkmaurya/algo-trading) • [Demo](https://trading-bot-dashboard.com) |
-| 4 | **Google Search Query Understanding** | NLP | BERT, Transformers, Kubernetes | [GitHub](https://github.com/ayushkmaurya/search-nlp) • [Demo](https://search-query-demo.com) |
-| 5 | **Amazon Supply Chain Optimization** | Analytics | Apache Spark, Reinforcement Learning | [GitHub](https://github.com/ayushkmaurya/supply-chain-ml) • [Demo](https://supply-chain-optimizer.com) |
-| 6 | **Spotify Music Recommendation AI** | Deep Learning | TensorFlow, Audio Processing, GCP | [GitHub](https://github.com/ayushkmaurya/music-recommender) • [Demo](https://music-ai-demo.com) |
-| 7 | **Microsoft Azure Cognitive Services** | Computer Vision | PyTorch, Azure, Docker | [GitHub](https://github.com/ayushkmaurya/cognitive-services) • [Demo](https://cognitive-services-demo.azure.com) |
-| 8 | **PayPal Fraud Detection System** | Machine Learning | XGBoost, Apache Kafka, Redis | [GitHub](https://github.com/ayushkmaurya/fraud-detection) • [Demo](https://fraud-detector-demo.com) |
-| 9 | **OpenAI GPT Content Moderation** | NLP | Transformers, BERT, MLflow | [GitHub](https://github.com/ayushkmaurya/content-moderation) • [Demo](https://content-mod-demo.com) |
-| 10 | **Uber Dynamic Pricing Engine** | Analytics | Apache Spark, Geospatial Analysis | [GitHub](https://github.com/ayushkmaurya/dynamic-pricing) • [Demo](https://pricing-engine-demo.com) |
-
+| 1 | **Netflix Content Recommendation Engine** | ML | Python,Streamlit| [GitHub](https://github.com/AyushMaurya13/1_Netflix-Content-Recommendation-Engine) • [Demo](https://6rcuwthpkt3cgf38kmglpy.streamlit.app/) |
+| 2 | **Indian Crop Yield Prediction** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy, ScikitLearn| [GitHub](https://github.com/AyushMaurya13/Indian_crop_yield_prediction) • [Demo](https://indiancropyieldprediction-mmwh4csrahy6kqchvcxipm.streamlit.app/)
+| 3 | **Tesla Autopilot Computer Vision Pipeline** | Computer Vision | PyTorch, CUDA, OpenCV | [GitHub](https://github.com/ayushkmaurya/autopilot-cv) • [Demo](https://autopilot-cv-demo.com) |
+| 4 | **Goldman Sachs Algorithmic Trading Bot** | Deep Learning | Python, PyTorch, C++ | [GitHub](https://github.com/ayushkmaurya/algo-trading) • [Demo](https://trading-bot-dashboard.com) |
+| 5 | **Google Search Query Understanding** | NLP | BERT, Transformers, Kubernetes | [GitHub](https://github.com/ayushkmaurya/search-nlp) • [Demo](https://search-query-demo.com) |
+| 6 | **Amazon Supply Chain Optimization** | Analytics | Apache Spark, Reinforcement Learning | [GitHub](https://github.com/ayushkmaurya/supply-chain-ml) • [Demo](https://supply-chain-optimizer.com) |
+| 7 | **Spotify Music Recommendation AI** | Deep Learning | TensorFlow, Audio Processing, GCP | [GitHub](https://github.com/ayushkmaurya/music-recommender) • [Demo](https://music-ai-demo.com) |
+| 8 | **Microsoft Azure Cognitive Services** | Computer Vision | PyTorch, Azure, Docker | [GitHub](https://github.com/ayushkmaurya/cognitive-services) • [Demo](https://cognitive-services-demo.azure.com) |
+| 9 | **PayPal Fraud Detection System** | Machine Learning | XGBoost,scikit-learn| [GitHub](https://github.com/AyushMaurya13/2_PayPal_Fraud_Detection_System) • [Demo](https://f6efrv6uttbd7vpxklzzet.streamlit.app/) |
+| 10 | **OpenAI GPT Content Moderation** | NLP | Transformers, BERT, MLflow | [GitHub](https://github.com/ayushkmaurya/content-moderation) • [Demo](https://content-mod-demo.com) |
+| 11 | **Uber Dynamic Pricing Engine** | Analytics | Apache Spark, Geospatial Analysis | [GitHub](https://github.com/ayushkmaurya/dynamic-pricing) • [Demo](https://pricing-engine-demo.com) |
+| 12 | **NYC Airbnb Analytics Dashboard** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA) • [Demo](https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/)
+| 13 | **Medical Insurance Cost Prediction** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction) • [Demo](https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/)
 </div>
 
 ### 🏆 Project Highlights
