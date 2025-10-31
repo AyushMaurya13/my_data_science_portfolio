@@ -144,7 +144,7 @@ Accent: #ffd700 (Gold)
 | 11 | **Uber Dynamic Pricing Engine** | Analytics | Apache Spark, Geospatial Analysis | [GitHub](https://github.com/ayushkmaurya/dynamic-pricing) • [Demo](https://pricing-engine-demo.com) |
 | 12 | **NYC Airbnb Analytics Dashboard** |Feature Engineering, Data Analysis| Matplotlib, Seaborn, Pandas, Numpy, ploty| [GitHub](https://github.com/AyushMaurya13/AirBnb_listing_analysis_EDA) • [Demo](https://8qrfhz7nkjfvpm2rqf7snm.streamlit.app/)
 | 13 | **Medical Insurance Cost Prediction** |Feature Engineering, Data Analysis, Machine Learning| Matplotlib, Scikit-Learn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction) • [Demo](https://medical-insurance-cost-prediction-sek2fnp2yaftamt5auegaq.streamlit.app/)
-| 14 | **Diabetes Prediction** | Data Analysis, Machine Learning| SVM, Scikit-Learn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/Medical-Insurance-cost-prediction) • [Demo](https://qif3dzaa6dfbxp3hanyx6z.streamlit.app/)
+| 14 | **Diabetes Prediction** | Data Analysis, Machine Learning| SVM, Scikit-Learn, Pandas, Numpy| [GitHub](https://github.com/AyushMaurya13/3_Diabetes_Prediction/tree/main) • [Demo](https://qif3dzaa6dfbxp3hanyx6z.streamlit.app/)
 </div>
 </div>
 
